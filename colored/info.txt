@@ -1,1 +1,1 @@
-data set: https://www.kaggle.com/datasets/splcher/animefacedataset
+download the dataset from kaggle, and place the folder in 'colored': https://www.kaggle.com/datasets/splcher/animefacedataset
