@@ -50,7 +50,7 @@ n_extra_layers_g = 1
 
 netG = models._netG_1(ngpu, nz, 3, image_size, n_extra_layers_g).to(device)
 netG.apply(weights_init)
-netG.load_state_dict(torch.load("output/data_115/all_weights/97.pth"))
+netG.load_state_dict(torch.load("pth_weights_direction"))
 fixed_noise = torch.randn(64, nz, 1, 1, device=device)
 with torch.no_grad():
     res = netG(fixed_noise).detach().cpu()
