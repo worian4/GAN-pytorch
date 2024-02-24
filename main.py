@@ -106,8 +106,10 @@ timer = time.time()
 
 for epoch in range(num_epochs):
     last_cycle = time.time()
+    '''
     low = 100.0
     low_img = Variable()
+    '''
 
     for i, data in enumerate(dataloader, 0):
         iter_beg = time.time()
@@ -191,8 +193,6 @@ for epoch in range(num_epochs):
                 torch.save(netD.state_dict(),'model/dis_model.pth')
                 torch.save(netG.state_dict(),'model/gen_model.pth')
         '''
-        takes too much memory, however can be useful
-
         if (errD.item() + errG.item()) < low:
             with torch.no_grad():
                 low = errD.item() + errG.item()
@@ -228,8 +228,6 @@ for epoch in range(num_epochs):
     perepoch.append(time.time()-last_cycle)
 
     '''
-    takes too much memory, however can be useful
-
     save_image(vutils.make_grid(low_img, padding=2, normalize=True),
                 'output/data_'+j+'/images'+str(num_im)+'/'+str(epoch)+'.png')
     save_image(vutils.make_grid(low_1mg, padding=2, normalize=True),
@@ -263,13 +261,8 @@ with open('output/data_'+j+'/all_losses.txt', 'w') as file:
 file.close()
 
 save_image(vutils.make_grid(best_Dimage, padding=2, normalize=True), 'output/data_'+j+'/low_d.png')
-torch.save(best_Dimage, 'output/data_'+j+'/low_d.pt')
-
 save_image(vutils.make_grid(best_Gimage, padding=2, normalize=True), 'output/data_'+j+'/low_g.png')
-torch.save(best_Gimage, 'output/data_'+j+'/low_d.pt')
-
 save_image(vutils.make_grid(best_kimage, padding=2, normalize=True), 'output/data_'+j+'/low_k.png')
-torch.save(best_kimage, 'output/data_'+j+'/low_d.pt')
 
 plt.figure(figsize=(10,5))
 plt.title("Generator and Discriminator Loss During Training")
