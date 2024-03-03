@@ -232,7 +232,7 @@ for epoch in range(num_epochs):
                'output/data_'+j+'/all_weights/'+str(epoch)+'.pth')
     '''
 
-print('\nTraining Comlete.\n')
+print('\nTraining Complete.\n')
 
 with open('output/data_'+j+'/info.txt', 'w') as file:
     file.write('low Discriminator loss:\t\t'+str(low_Dloss)+'\n')
