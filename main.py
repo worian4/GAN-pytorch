@@ -14,7 +14,6 @@ import moviepy.editor as mp
 from torchvision.utils import save_image
 import time
 
-from torch.autograd import Variable
 from func import transform, weights_init
 import models
 
@@ -81,9 +80,6 @@ time_per_iter = 0
 time_per_epoch =0
 tle = 0
 
-best_Dimage = Variable()
-best_Gimage = Variable()
-best_kimage = Variable()
 low_Gloss = 100.0
 low_Dloss = 100.0
 low_kloss = 100.0
