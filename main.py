@@ -88,12 +88,12 @@ print('\nStarting Training..\n')
 info = open(dataname, 'r+') if dataname in os.listdir() else open(dataname, 'x')
  
 if not 'output' in os.listdir(): os.mkdir('output')
-j = str(sorted(list(map(lambda x: int(x.split('data_')[1]), os.listdir('output'))), reverse=True)[0]+1)
+j = str(sorted(list(map(lambda x: int(x.split('data_')[1]), os.listdir('output'))), reverse=True)[0]+1)\
+os.mkdir('./output/data_'+j)
 
 '''
 takes too much memory, however can be useful
 
-os.mkdir('./output/data_'+j)
 os.mkdir('./output/data_'+j+'/images'+str(num_im))
 os.mkdir('./output/data_'+j+'/all_weights')
 '''
